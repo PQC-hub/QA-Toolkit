@@ -24,7 +24,7 @@ Windows system optimization tool written in PowerShell
 
 ## 🖥 Screenshot
 
-![QA Toolkit Interface](anh man hinh.png)
+![QA Toolkit Interface](manhinh.png)
 
 ## 📦 Download
 
