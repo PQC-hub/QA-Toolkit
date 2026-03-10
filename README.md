@@ -3,7 +3,7 @@
 Windows system optimization tool written in PowerShell
 # 🛠 QA Toolkit
 
-![QA Toolkit Logo](assets/logo.png)
+![QA Toolkit Logo](logo_QA.ico)
 
 **QA Toolkit** là công cụ tối ưu và kiểm tra hệ thống Windows viết bằng **PowerShell**, cung cấp giao diện GUI thân thiện giúp người dùng dễ dàng:
 
