@@ -27,11 +27,6 @@ Windows system optimization tool written in PowerShell
 ![QA Toolkit Interface](manhinh.png)
 
 ## 📦 Download
-
-Bạn có thể tải chương trình tại trang **Releases**:
-
-👉 Releases → Download **QA_Toolkit.exe**
-
-Hoặc tải mã nguồn và chạy trực tiếp:
+[![Download](https://img.shields.io/badge/Download-QA%20Toolkit-blue)](https://github.com/PQC-hub/QA-Toolkit/releases)
 
 ⭐ Nếu bạn thấy dự án hữu ích, hãy **Star repo** để ủng hộ!
