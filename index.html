@@ -1,289 +1,270 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QA Toolkit - Công cụ tối ưu hóa và kiểm tra hệ thống Windows viết bằng PowerShell với giao diện GUI thân thiện.">
+    <title>QA Toolkit</title>
+    <link rel="icon" href="logo_QA.ico">
 
-<title>QA Toolkit</title>
+    <style>
+        body {
+            font-family: Segoe UI, Arial, sans-serif;
+            background: #0d1117;
+            color: white;
+            margin: 0;
+            line-height: 1.6;
+        }
 
-<link rel="icon" href="logo_QA.ico">
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #161b22;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 22px;
+        }
+        .logo img {
+            width: 36px;
+            margin-right: 12px;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            opacity: 0.85;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .menu a:hover {
+            opacity: 1;
+            color: #58a6ff;
+        }
 
-<style>
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 80px;
+        }
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 12px;
+        }
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .download {
+            display: inline-block;
+            margin-top: 40px;
+            background: #2ea043;
+            padding: 18px 52px;
+            font-size: 23px;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(46, 160, 67, 0.3);
+        }
+        .download:hover {
+            background: #3fb950;
+            transform: translateY(-4px);
+        }
 
-body{
-font-family:Segoe UI,Arial;
-background:#0d1117;
-color:white;
-margin:0;
-}
+        /* MAIN IMAGE */
+        .mainshot {
+            margin: 60px auto;
+            text-align: center;
+        }
+        .mainshot img {
+            width: 92%;
+            max-width: 980px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+        }
 
-/* NAVBAR */
+        /* FEATURES */
+        .features {
+            max-width: 1180px;
+            margin: 100px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .card {
+            background: #161b22;
+            padding: 34px 24px;
+            border-radius: 16px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .card span {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 16px;
+        }
 
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 60px;
-background:#161b22;
-}
+        /* GALLERY */
+        .gallery {
+            max-width: 1180px;
+            margin: 120px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .gallery h2 {
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .grid img {
+            width: 100%;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+        .grid img:hover {
+            transform: scale(1.06);
+        }
 
-.logo{
-display:flex;
-align-items:center;
-font-weight:700;
-font-size:20px;
-}
+        /* GUIDE */
+        .guide {
+            max-width: 860px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+        .guide h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .guide ol {
+            font-size: 18px;
+        }
+        .guide li {
+            margin-bottom: 16px;
+        }
 
-.logo img{
-width:34px;
-margin-right:10px;
-}
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px;
+            opacity: 0.65;
+            font-size: 15px;
+        }
 
-.menu a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-opacity:0.8;
-font-size:15px;
-}
-
-.menu a:hover{
-opacity:1;
-}
-
-/* HERO */
-
-.hero{
-text-align:center;
-padding:80px 20px 60px;
-}
-
-.hero h1{
-font-size:52px;
-margin-bottom:10px;
-}
-
-.subtitle{
-opacity:0.75;
-font-size:18px;
-}
-
-.download{
-display:inline-block;
-margin-top:35px;
-background:#2ea043;
-padding:18px 46px;
-font-size:22px;
-border-radius:10px;
-color:white;
-text-decoration:none;
-font-weight:600;
-}
-
-.download:hover{
-background:#3fb950;
-}
-
-/* MAIN IMAGE */
-
-.mainshot{
-margin-top:50px;
-display:flex;
-justify-content:center;
-}
-
-.mainshot img{
-width:92%;
-max-width:950px;
-border-radius:12px;
-box-shadow:0 0 40px rgba(0,0,0,0.6);
-}
-
-/* FEATURES */
-
-.features{
-max-width:1100px;
-margin:90px auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:30px;
-padding:0 20px;
-}
-
-.card{
-background:#161b22;
-padding:30px;
-border-radius:12px;
-text-align:center;
-}
-
-.card span{
-font-size:40px;
-}
-
-/* GALLERY */
-
-.gallery{
-max-width:1100px;
-margin:100px auto;
-padding:0 20px;
-text-align:center;
-}
-
-.gallery h2{
-margin-bottom:30px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-}
-
-.grid img{
-width:100%;
-border-radius:10px;
-transition:0.2s;
-}
-
-.grid img:hover{
-transform:scale(1.04);
-}
-
-/* GUIDE */
-
-.guide{
-max-width:850px;
-margin:80px auto;
-padding:0 20px;
-}
-
-.guide h2{
-text-align:center;
-margin-bottom:25px;
-}
-
-.guide li{
-margin-bottom:12px;
-font-size:17px;
-}
-
-/* FOOTER */
-
-footer{
-margin-top:80px;
-text-align:center;
-padding:30px;
-opacity:0.6;
-}
-
-</style>
-
+        @media (max-width: 768px) {
+            .navbar { padding: 18px 20px; }
+            .hero h1 { font-size: 42px; }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="navbar">
-
-<div class="logo">
-<img src="logo_QA.ico">
-QA Toolkit
-</div>
-
-<div class="menu">
-<a href="#features">Features</a>
-<a href="#gallery">Screenshots</a>
-<a href="#guide">Guide</a>
-<a href="https://github.com/pqc-hub/QA-Toolkit">GitHub</a>
-</div>
-
+    <div class="logo">
+        <img src="logo_QA.ico" alt="Logo">
+        QA Toolkit
+    </div>
+    <div class="menu">
+        <a href="#features">Tính năng</a>
+        <a href="#gallery">Hình ảnh</a>
+        <a href="#guide">Hướng dẫn</a>
+        <a href="https://github.com/PQC-hub/QA-Toolkit" target="_blank">GitHub</a>
+    </div>
 </div>
 
 <div class="hero">
-
-<h1>QA Toolkit</h1>
-
-<div class="subtitle">
-Windows System Optimization Tool written in PowerShell
-</div>
-
-<a class="download" href="https://github.com/pqc-hub/QA-Toolkit/releases">
-Download Latest Version
-</a>
-
+    <h1>QA Toolkit</h1>
+    <div class="subtitle">
+        Công cụ tối ưu hóa và kiểm tra hệ thống Windows<br>
+        được viết bằng PowerShell • Giao diện GUI thân thiện
+    </div>
+    <a class="download" href="https://github.com/PQC-hub/QA-Toolkit/releases" target="_blank">
+        Tải phiên bản mới nhất
+    </a>
 </div>
 
 <div class="mainshot">
-<img src="manhinh1.png">
+    <img src="manhinh1.png" alt="Giao diện QA Toolkit">
 </div>
 
 <section id="features" class="features">
-
-<div class="card">
-<span>🖥</span>
-<h3>System Audit</h3>
-Analyze hardware and system performance
-</div>
-
-<div class="card">
-<span>🧹</span>
-<h3>Temp Cleanup</h3>
-Remove temporary files and junk data
-</div>
-
-<div class="card">
-<span>🚀</span>
-<h3>Startup Manager</h3>
-Manage startup programs easily
-</div>
-
-<div class="card">
-<span>📄</span>
-<h3>HTML Report</h3>
-Generate system diagnostic reports
-</div>
-
+    <div class="card">
+        <span>🔍</span>
+        <h3>System Audit</h3>
+        <p>Kiểm tra tình trạng hệ thống và phần cứng</p>
+    </div>
+    <div class="card">
+        <span>🧹</span>
+        <h3>Temp Cleanup</h3>
+        <p>Dọn dẹp file tạm, cache và rác Windows</p>
+    </div>
+    <div class="card">
+        <span>⚡</span>
+        <h3>Startup Manager</h3>
+        <p>Quản lý chương trình khởi động dễ dàng</p>
+    </div>
+    <div class="card">
+        <span>📊</span>
+        <h3>System Health Score</h3>
+        <p>Đánh giá sức khỏe máy tính (0-100)</p>
+    </div>
+    <div class="card">
+        <span>📄</span>
+        <h3>HTML Report</h3>
+        <p>Tạo báo cáo hệ thống dạng HTML chuyên nghiệp</p>
+    </div>
+    <div class="card">
+        <span>🔒</span>
+        <h3>Safe Cleanup Mode</h3>
+        <p>Chế độ dọn dẹp an toàn, không xóa file quan trọng</p>
+    </div>
 </section>
 
 <section id="gallery" class="gallery">
-
-<h2>Screenshot Gallery</h2>
-
-<div class="grid">
-
-<img src="manhinh1.png">
-<img src="manhinh2.png">
-<img src="manhinh3.png">
-<img src="manhinh4.png">
-<img src="manhinh5.png">
-<img src="manhinh6.png">
-
-</div>
-
+    <h2>Gallery ảnh chụp màn hình</h2>
+    <div class="grid">
+        <img src="manhinh1.png" alt="Screenshot 1">
+        <img src="manhinh2.png" alt="Screenshot 2">
+        <img src="manhinh3.png" alt="Screenshot 3">
+        <img src="manhinh4.png" alt="Screenshot 4">
+        <img src="manhinh5.png" alt="Screenshot 5">
+        <img src="manhinh6.png" alt="Screenshot 6">
+    </div>
 </section>
 
 <section id="guide" class="guide">
-
-<h2>How to Use</h2>
-
-<ol>
-
-<li>Download the latest version from the Download button.</li>
-
-<li>Run the application as Administrator.</li>
-
-<li>Click System Audit to analyze the system.</li>
-
-<li>Use Temp Cleanup to free disk space.</li>
-
-<li>Generate reports using HTML Report.</li>
-
-</ol>
-
+    <h2>Hướng dẫn sử dụng</h2>
+    <ol>
+        <li>Tải phiên bản mới nhất từ nút Download.</li>
+        <li>Chạy chương trình với quyền Administrator.</li>
+        <li>Nhấn <strong>System Audit</strong> để phân tích hệ thống.</li>
+        <li>Sử dụng <strong>Temp Cleanup</strong> để giải phóng dung lượng.</li>
+        <li>Tạo báo cáo chuyên nghiệp bằng <strong>HTML Report</strong>.</li>
+    </ol>
 </section>
 
 <footer>
-
-QA Toolkit © 2026
-
+    QA Toolkit © 2026 • Made with ❤️ by PQC-hub
 </footer>
 
 </body>
