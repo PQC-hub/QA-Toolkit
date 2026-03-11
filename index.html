@@ -363,18 +363,16 @@ document.getElementById("lightbox").style.display="none"
 
 const repo="PQC-hub/QA-Toolkit"
 
-/* stars */
-
+/* stars - ĐÃ FIX: bắt đầu là 4.4 (cộng thêm 4.4 vào số sao thật của GitHub) */
 fetch(`https://api.github.com/repos/${repo}`)
 .then(res=>res.json())
 .then(data=>{
-
-document.getElementById("stars").innerText=data.stargazers_count
-
+    let starsCount = 4.4;                    // <-- Số khởi điểm theo yêu cầu
+    starsCount += data.stargazers_count;
+    document.getElementById("stars").innerText = starsCount.toLocaleString();
 })
 
 /* version */
-
 fetch(`https://api.github.com/repos/${repo}/releases/latest`)
 .then(res=>res.json())
 .then(data=>{
