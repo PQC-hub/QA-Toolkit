@@ -13,38 +13,38 @@
 body{
 font-family:Segoe UI,Arial;
 margin:0;
-background:#f4f6f9;
-color:#222;
+background:#1f1f1f;
+color:#eee;
 transition:0.3s;
 }
 
-.dark{
-background:#1f1f1f;
-color:#eee;
+.light{
+background:#f4f6f9;
+color:#222;
 }
 
 .navbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:#ffffff;
+background:#2a2a2a;
 padding:14px 30px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
+box-shadow:0 2px 6px rgba(0,0,0,0.2);
 }
 
-.dark .navbar{
-background:#2a2a2a;
+.light .navbar{
+background:#ffffff;
 }
 
 .menu a{
 margin-right:20px;
 text-decoration:none;
 font-weight:600;
-color:#333;
+color:#eee;
 }
 
-.dark .menu a{
-color:#eee;
+.light .menu a{
+color:#333;
 }
 
 .toggle{
@@ -109,14 +109,14 @@ gap:25px;
 }
 
 .card{
-background:white;
+background:#2a2a2a;
 padding:25px;
 border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
+box-shadow:0 3px 10px rgba(0,0,0,0.3);
 }
 
-.dark .card{
-background:#2a2a2a;
+.light .card{
+background:white;
 }
 
 .slideshow{
@@ -189,9 +189,9 @@ color:#888;
 
 </div>
 
-<div class="toggle" onclick="toggleDark()">
+<div class="toggle" onclick="toggleTheme()">
 
-Dark Mode
+Light Mode
 
 </div>
 
@@ -311,11 +311,23 @@ QA Toolkit – Công cụ tối ưu Windows
 
 <script>
 
-function toggleDark(){
+/* chuyển dark / light */
 
-document.body.classList.toggle("dark")
+function toggleTheme(){
+
+document.body.classList.toggle("light")
+
+let btn=document.querySelector(".toggle")
+
+if(document.body.classList.contains("light")){
+btn.innerText="Dark Mode"
+}else{
+btn.innerText="Light Mode"
+}
 
 }
+
+/* slideshow */
 
 let images=[
 "manhinh1.png",
@@ -336,6 +348,8 @@ document.getElementById("slide").src=images[i]
 
 },3000)
 
+/* gallery zoom */
+
 function openImg(img){
 
 document.getElementById("lightbox").style.display="flex"
@@ -351,21 +365,48 @@ document.getElementById("lightbox").style.display="none"
 
 /* GitHub API */
 
-fetch("https://api.github.com/repos/PQC-hub/QA-Toolkit")
+const repo="PQC-hub/QA-Toolkit"
+
+/* stars */
+
+fetch(`https://api.github.com/repos/${repo}`)
 .then(res=>res.json())
 .then(data=>{
+
 document.getElementById("stars").innerText=data.stargazers_count
+
 })
 
-fetch("https://api.github.com/repos/PQC-hub/QA-Toolkit/releases/latest")
+/* version */
+
+fetch(`https://api.github.com/repos/${repo}/releases/latest`)
 .then(res=>res.json())
 .then(data=>{
+
 document.getElementById("version").innerText=data.tag_name
-let downloads=0
-data.assets.forEach(a=>{
-downloads+=a.download_count
+
 })
-document.getElementById("downloads").innerText=downloads
+
+/* downloads */
+
+fetch(`https://api.github.com/repos/${repo}/releases`)
+.then(res=>res.json())
+.then(data=>{
+
+let total=0
+
+data.forEach(r=>{
+
+r.assets.forEach(a=>{
+
+total+=a.download_count
+
+})
+
+})
+
+document.getElementById("downloads").innerText=total.toLocaleString()
+
 })
 
 </script>
