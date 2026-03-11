@@ -50,45 +50,141 @@
             color: #58a6ff;
         }
 
-        /* BANNER - ĐÃ THÊM DEBUG */
+        /* BANNER - ĐÃ THÊM */
         .banner {
             width: 100%;
-            background: #161b22;
         }
         .banner img {
             width: 100%;
             display: block;
             box-shadow: 0 10px 40px rgba(0,0,0,0.6);
         }
-        /* Nếu banner lỗi sẽ hiện khung đỏ + thông báo */
-        .banner img[onerror] {
-            border: 3px solid #f85149;
-        }
 
-        /* Các phần còn lại giữ nguyên (rút gọn để ngắn) */
-        .hero { text-align: center; padding: 60px 20px 80px; }
-        .hero h1 { font-size: 56px; margin-bottom: 12px; }
-        .subtitle { font-size: 20px; opacity: 0.8; max-width: 700px; margin: 0 auto; }
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 80px;
+        }
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 12px;
+        }
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
         .download {
-            display: inline-block; margin-top: 40px; background: #2ea043; padding: 18px 52px;
-            font-size: 23px; border-radius: 12px; color: white; text-decoration: none;
-            font-weight: 600; transition: 0.3s; box-shadow: 0 8px 20px rgba(46,160,67,0.3);
+            display: inline-block;
+            margin-top: 40px;
+            background: #2ea043;
+            padding: 18px 52px;
+            font-size: 23px;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(46, 160, 67, 0.3);
         }
-        .download:hover { background: #3fb950; transform: translateY(-4px); }
+        .download:hover {
+            background: #3fb950;
+            transform: translateY(-4px);
+        }
 
-        .mainshot img, .grid img {
-            width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+        /* MAIN IMAGE */
+        .mainshot {
+            margin: 60px auto;
+            text-align: center;
         }
-        .features, .gallery, .guide { max-width: 1180px; margin: 100px auto; padding: 0 20px; }
-        .card { background: #161b22; padding: 34px 24px; border-radius: 16px; text-align: center; transition: 0.4s; }
-        .card:hover { transform: translateY(-12px); }
-        .card span { font-size: 48px; display: block; margin-bottom: 16px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-        footer { text-align: center; padding: 40px; opacity: 0.65; font-size: 15px; }
+        .mainshot img {
+            width: 92%;
+            max-width: 980px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+        }
+
+        /* FEATURES */
+        .features {
+            max-width: 1180px;
+            margin: 100px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .card {
+            background: #161b22;
+            padding: 34px 24px;
+            border-radius: 16px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .card span {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            max-width: 1180px;
+            margin: 120px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .gallery h2 {
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .grid img {
+            width: 100%;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+        .grid img:hover {
+            transform: scale(1.06);
+        }
+
+        /* GUIDE */
+        .guide {
+            max-width: 860px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+        .guide h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .guide ol {
+            font-size: 18px;
+        }
+        .guide li {
+            margin-bottom: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px;
+            opacity: 0.65;
+            font-size: 15px;
+        }
 
         @media (max-width: 768px) {
             .navbar { padding: 18px 20px; }
             .hero h1 { font-size: 42px; }
+            .banner img { height: auto; }
         }
     </style>
 </head>
@@ -107,10 +203,9 @@
     </div>
 </div>
 
-<!-- BANNER -->
+<!-- BANNER ĐÃ THÊM Ở ĐÂY -->
 <div class="banner">
-    <img src="banner.png" alt="QA Toolkit Banner" 
-         onerror="this.onerror=null; this.src='manhinh1.png'; alert('❌ Không tìm thấy banner.png! Đang hiển thị ảnh tạm. Kiểm tra tên file chính xác là banner.png (chữ thường)');">
+    <img src="banner.png" alt="QA Toolkit Banner">
 </div>
 
 <div class="hero">
@@ -124,21 +219,41 @@
     </a>
 </div>
 
-<!-- Phần còn lại giữ nguyên như code cũ (mainshot, features, gallery, guide, footer) -->
-<!-- Tôi rút gọn để bạn dễ copy, nhưng vẫn đầy đủ tính năng -->
-
 <div class="mainshot">
     <img src="manhinh1.png" alt="Giao diện QA Toolkit">
 </div>
 
 <section id="features" class="features">
-    <!-- 6 cards như trước -->
-    <div class="card"><span>🔍</span><h3>System Audit</h3><p>Kiểm tra tình trạng hệ thống và phần cứng</p></div>
-    <div class="card"><span>🧹</span><h3>Temp Cleanup</h3><p>Dọn dẹp file tạm, cache và rác Windows</p></div>
-    <div class="card"><span>⚡</span><h3>Startup Manager</h3><p>Quản lý chương trình khởi động dễ dàng</p></div>
-    <div class="card"><span>📊</span><h3>System Health Score</h3><p>Đánh giá sức khỏe máy tính (0-100)</p></div>
-    <div class="card"><span>📄</span><h3>HTML Report</h3><p>Tạo báo cáo hệ thống dạng HTML chuyên nghiệp</p></div>
-    <div class="card"><span>🔒</span><h3>Safe Cleanup Mode</h3><p>Chế độ dọn dẹp an toàn, không xóa file quan trọng</p></div>
+    <div class="card">
+        <span>🔍</span>
+        <h3>System Audit</h3>
+        <p>Kiểm tra tình trạng hệ thống và phần cứng</p>
+    </div>
+    <div class="card">
+        <span>🧹</span>
+        <h3>Temp Cleanup</h3>
+        <p>Dọn dẹp file tạm, cache và rác Windows</p>
+    </div>
+    <div class="card">
+        <span>⚡</span>
+        <h3>Startup Manager</h3>
+        <p>Quản lý chương trình khởi động dễ dàng</p>
+    </div>
+    <div class="card">
+        <span>📊</span>
+        <h3>System Health Score</h3>
+        <p>Đánh giá sức khỏe máy tính (0-100)</p>
+    </div>
+    <div class="card">
+        <span>📄</span>
+        <h3>HTML Report</h3>
+        <p>Tạo báo cáo hệ thống dạng HTML chuyên nghiệp</p>
+    </div>
+    <div class="card">
+        <span>🔒</span>
+        <h3>Safe Cleanup Mode</h3>
+        <p>Chế độ dọn dẹp an toàn, không xóa file quan trọng</p>
+    </div>
 </section>
 
 <section id="gallery" class="gallery">
