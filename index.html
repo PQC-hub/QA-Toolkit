@@ -1,56 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>QA Toolkit</title>
+
+<link rel="icon" href="logo_QA.ico">
+
 <style>
+
 body{
 font-family:Arial;
 background:#0d1117;
 color:white;
 text-align:center;
-padding:40px;
+margin:0;
 }
+
+/* banner */
+
+.banner{
+width:100%;
+max-height:300px;
+object-fit:cover;
+}
+
+/* logo */
+
+.logo{
+width:120px;
+margin-top:20px;
+}
+
+/* title */
 
 h1{
 font-size:48px;
+margin-top:10px;
 }
+
+/* button */
 
 button{
-background:#238636;
+background:#2ea043;
 color:white;
-padding:15px 30px;
-font-size:20px;
+padding:16px 32px;
+font-size:22px;
 border:none;
-border-radius:6px;
+border-radius:8px;
 cursor:pointer;
-}
-
-img{
-max-width:700px;
 margin-top:20px;
 }
+
+button:hover{
+background:#3fb950;
+}
+
+/* screenshot */
+
+.screenshot{
+width:90%;
+max-width:1000px;
+margin-top:40px;
+border-radius:8px;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+
+.features{
+margin-top:30px;
+font-size:18px;
+}
+
+footer{
+margin-top:40px;
+opacity:0.7;
+font-size:14px;
+}
+
 </style>
+
 </head>
 
 <body>
+
+<!-- banner -->
+
+<img src="banner.png" class="banner">
+
+<!-- logo -->
+
+<img src="logo_QA.ico" class="logo">
 
 <h1>QA Toolkit</h1>
 
 <p>Windows System Optimization Tool written in PowerShell</p>
 
-<br>
-
-<a href="https://github.com/chinh1960/QA-Toolkit/releases">
+<a href="https://github.com/pqc-hub/QA-Toolkit/releases">
 <button>Download Latest Version</button>
 </a>
 
-<br><br>
+<!-- screenshot -->
 
-<img src="manhinh.png">
+<img src="manhinh.png" class="screenshot">
 
-<p>
+<div class="features">
 System Audit • Temp Cleanup • Startup Manager • HTML Report
-</p>
+</div>
+
+<footer>
+QA Toolkit © 2026
+</footer>
 
 </body>
 </html>
