@@ -101,7 +101,7 @@ Chế độ dọn dẹp an toàn giúp tránh xóa nhầm các file quan trọng
 # 🖥 Program Interface
 
 <p align="center">
-<img src="manhinh.png" width="750">
+<img src="manhinh1.png" width="750">
 </p>
 
 ---
