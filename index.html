@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <title>QA Toolkit</title>
 
@@ -72,7 +71,6 @@ background:#005ea6;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
-margin-bottom:40px;
 }
 
 .card{
@@ -86,17 +84,9 @@ box-shadow:0 3px 10px rgba(0,0,0,0.1);
 margin-top:0;
 }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-margin-top:30px;
-}
-
-.gallery img{
-width:100%;
-border-radius:8px;
-box-shadow:0 4px 12px rgba(0,0,0,0.15);
+.screenshot{
+text-align:center;
+margin-top:40px;
 }
 
 footer{
@@ -177,21 +167,18 @@ Download Latest Version
 
 </div>
 
+<div class="screenshot">
+
 <h2>Application Interface</h2>
 
-<div class="gallery">
-
-<img src="manhinh1.png">
-<img src="manhinh2.png">
-<img src="manhinh3.png">
-<img src="manhinh4.png">
-<img src="manhinh5.png">
-<img src="manhinh6.png">
-
+<img src="manhinh1.png" width="750">
+<img src="manhinh2.png" width="750">
+  <img src="manhinh3.png" width="750">
+  <img src="manhinh4.png" width="750">
+  <img src="manhinh5.png" width="750">
+  <img src="manhinh6.png" width="750">
 </div>
-
-<h2>System Requirements</h2>
-
+<h2>Requirements</h2>
 <ul>
 <li>Windows 10 / Windows 11</li>
 <li>PowerShell 5.1+</li>
@@ -210,7 +197,7 @@ powershell -ExecutionPolicy Bypass -File QA-Toolkit.ps1
 
 <footer>
 
-QA Toolkit – PowerShell Windows Optimization Tool
+QA Toolkit – PowerShell System Optimization Tool
 
 </footer>
 
