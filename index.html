@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QA Toolkit</title>
+
+<link rel="icon" href="logo_QA.ico">
+
+<style>
+
+body{
+font-family:Segoe UI,Arial;
+margin:0;
+background:#f4f6f9;
+color:#333;
+}
+
+header{
+text-align:center;
+background:#111;
+padding:40px;
+color:white;
+}
+
+header img{
+max-width:700px;
+}
+
+.logo{
+margin-top:20px;
+width:120px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+h1{
+text-align:center;
+font-size:40px;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+color:#777;
+margin-bottom:40px;
+}
+
+.download{
+text-align:center;
+margin:40px;
+}
+
+.download a{
+background:#0078D4;
+color:white;
+padding:15px 30px;
+text-decoration:none;
+font-size:18px;
+border-radius:6px;
+}
+
+.download a:hover{
+background:#005ea6;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:8px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.card h3{
+margin-top:0;
+}
+
+.screenshot{
+text-align:center;
+margin-top:40px;
+}
+
+footer{
+margin-top:60px;
+padding:20px;
+text-align:center;
+color:#777;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<img src="banner.png">
+
+<br>
+
+<img src="logo_QA.ico" class="logo">
+
+<h1>QA Toolkit</h1>
+
+<p>Windows System Optimization Tool</p>
+
+</header>
+
+<div class="container">
+
+<p class="subtitle">
+
+PowerShell based Windows optimization toolkit with GUI interface.
+
+</p>
+
+<div class="download">
+
+<a href="https://github.com/PQC-hub/QA-Toolkit/releases">
+Download Latest Version
+</a>
+
+</div>
+
+<h2>Features</h2>
+
+<div class="features">
+
+<div class="card">
+<h3>System Audit</h3>
+<p>Analyze CPU, RAM, disk usage and Windows system information.</p>
+</div>
+
+<div class="card">
+<h3>Temp Cleanup</h3>
+<p>Remove temporary files, cache and leftover update files.</p>
+</div>
+
+<div class="card">
+<h3>Startup Manager</h3>
+<p>View and disable unnecessary startup programs.</p>
+</div>
+
+<div class="card">
+<h3>System Health Score</h3>
+<p>Calculate overall system health score (0-100).</p>
+</div>
+
+<div class="card">
+<h3>HTML Report</h3>
+<p>Generate professional system reports in HTML format.</p>
+</div>
+
+<div class="card">
+<h3>Backup & Restore</h3>
+<p>Backup system data and restore when needed.</p>
+</div>
+
+</div>
+
+<div class="screenshot">
+
+<h2>Application Interface</h2>
+
+<img src="manhinh1.png" width="750">
+
+</div>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Windows 10 / Windows 11</li>
+<li>PowerShell 5.1+</li>
+<li>Administrator privileges</li>
+</ul>
+
+<h2>Run via PowerShell</h2>
+
+<pre>
+
+powershell -ExecutionPolicy Bypass -File QA-Toolkit.ps1
+
+</pre>
+
+</div>
+
+<footer>
+
+QA Toolkit – PowerShell System Optimization Tool
+
+</footer>
+
+</body>
+</html>
