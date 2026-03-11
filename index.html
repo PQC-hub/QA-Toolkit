@@ -21,64 +21,56 @@ margin:0;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 50px;
+padding:20px 60px;
 background:#161b22;
 }
 
-.logo-nav{
+.logo{
 display:flex;
 align-items:center;
 font-weight:700;
 font-size:20px;
 }
 
-.logo-nav img{
-width:32px;
+.logo img{
+width:34px;
 margin-right:10px;
 }
 
-.navbar a{
+.menu a{
 color:white;
 text-decoration:none;
 margin-left:25px;
-font-size:16px;
 opacity:0.8;
+font-size:15px;
 }
 
-.navbar a:hover{
+.menu a:hover{
 opacity:1;
-}
-
-/* BANNER */
-
-.banner{
-width:100%;
-max-height:220px;
-object-fit:cover;
 }
 
 /* HERO */
 
 .hero{
 text-align:center;
-padding:60px 20px;
+padding:80px 20px 60px;
 }
 
 .hero h1{
-font-size:50px;
+font-size:52px;
 margin-bottom:10px;
 }
 
 .subtitle{
-opacity:0.8;
+opacity:0.75;
 font-size:18px;
-margin-bottom:30px;
 }
 
 .download{
 display:inline-block;
+margin-top:35px;
 background:#2ea043;
-padding:18px 45px;
+padding:18px 46px;
 font-size:22px;
 border-radius:10px;
 color:white;
@@ -90,88 +82,96 @@ font-weight:600;
 background:#3fb950;
 }
 
-/* MAIN SCREENSHOT */
+/* MAIN IMAGE */
 
-.main-shot{
+.mainshot{
+margin-top:50px;
+display:flex;
+justify-content:center;
+}
+
+.mainshot img{
 width:92%;
 max-width:950px;
-margin-top:40px;
 border-radius:12px;
-box-shadow:0 0 40px rgba(0,0,0,0.7);
+box-shadow:0 0 40px rgba(0,0,0,0.6);
 }
 
 /* FEATURES */
 
 .features{
-margin:80px auto;
 max-width:1100px;
+margin:90px auto;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 gap:30px;
 padding:0 20px;
 }
 
-.feature{
+.card{
 background:#161b22;
 padding:30px;
 border-radius:12px;
 text-align:center;
 }
 
+.card span{
+font-size:40px;
+}
+
 /* GALLERY */
 
 .gallery{
 max-width:1100px;
-margin:80px auto;
-padding:40px 20px;
+margin:100px auto;
+padding:0 20px;
 text-align:center;
 }
 
-.gallery-grid{
+.gallery h2{
+margin-bottom:30px;
+}
+
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
 }
 
-.gallery img{
+.grid img{
 width:100%;
 border-radius:10px;
-cursor:pointer;
+transition:0.2s;
 }
 
-/* LIGHTBOX */
-
-.lightbox{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-justify-content:center;
-align-items:center;
-}
-
-.lightbox img{
-max-width:90%;
-max-height:90%;
+.grid img:hover{
+transform:scale(1.04);
 }
 
 /* GUIDE */
 
-.steps{
+.guide{
 max-width:850px;
-margin:auto;
-padding:50px 20px;
+margin:80px auto;
+padding:0 20px;
+}
+
+.guide h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+.guide li{
+margin-bottom:12px;
+font-size:17px;
 }
 
 /* FOOTER */
 
 footer{
-margin-top:60px;
-padding:25px;
+margin-top:80px;
 text-align:center;
+padding:30px;
 opacity:0.6;
 }
 
@@ -183,12 +183,12 @@ opacity:0.6;
 
 <div class="navbar">
 
-<div class="logo-nav">
+<div class="logo">
 <img src="logo_QA.ico">
 QA Toolkit
 </div>
 
-<div>
+<div class="menu">
 <a href="#features">Features</a>
 <a href="#gallery">Screenshots</a>
 <a href="#guide">Guide</a>
@@ -196,8 +196,6 @@ QA Toolkit
 </div>
 
 </div>
-
-<img src="banner.png" class="banner">
 
 <div class="hero">
 
@@ -208,35 +206,39 @@ Windows System Optimization Tool written in PowerShell
 </div>
 
 <a class="download" href="https://github.com/pqc-hub/QA-Toolkit/releases">
-⬇ Download Latest Version
+Download Latest Version
 </a>
 
-<br>
+</div>
 
-<img src="manhinh1.png" class="main-shot">
-
+<div class="mainshot">
+<img src="manhinh1.png">
 </div>
 
 <section id="features" class="features">
 
-<div class="feature">
-🖥 <h3>System Audit</h3>
-Analyze hardware and system status
+<div class="card">
+<span>🖥</span>
+<h3>System Audit</h3>
+Analyze hardware and system performance
 </div>
 
-<div class="feature">
-🧹 <h3>Temp Cleanup</h3>
-Remove unnecessary temporary files
+<div class="card">
+<span>🧹</span>
+<h3>Temp Cleanup</h3>
+Remove temporary files and junk data
 </div>
 
-<div class="feature">
-🚀 <h3>Startup Manager</h3>
-Control programs at Windows startup
+<div class="card">
+<span>🚀</span>
+<h3>Startup Manager</h3>
+Manage startup programs easily
 </div>
 
-<div class="feature">
-📄 <h3>HTML Report</h3>
-Generate detailed system reports
+<div class="card">
+<span>📄</span>
+<h3>HTML Report</h3>
+Generate system diagnostic reports
 </div>
 
 </section>
@@ -245,30 +247,34 @@ Generate detailed system reports
 
 <h2>Screenshot Gallery</h2>
 
-<div class="gallery-grid">
+<div class="grid">
 
-<img src="manhinh1.png" onclick="openImg(this)">
-<img src="manhinh2.png" onclick="openImg(this)">
-<img src="manhinh3.png" onclick="openImg(this)">
-<img src="manhinh4.png" onclick="openImg(this)">
-<img src="manhinh5.png" onclick="openImg(this)">
-<img src="manhinh6.png" onclick="openImg(this)">
+<img src="manhinh1.png">
+<img src="manhinh2.png">
+<img src="manhinh3.png">
+<img src="manhinh4.png">
+<img src="manhinh5.png">
+<img src="manhinh6.png">
 
 </div>
 
 </section>
 
-<section id="guide" class="steps">
+<section id="guide" class="guide">
 
 <h2>How to Use</h2>
 
 <ol>
 
 <li>Download the latest version from the Download button.</li>
-<li>Run the program as Administrator.</li>
-<li>Click System Audit to analyze your system.</li>
-<li>Use Temp Cleanup to remove unnecessary files.</li>
-<li>Generate a report with HTML Report.</li>
+
+<li>Run the application as Administrator.</li>
+
+<li>Click System Audit to analyze the system.</li>
+
+<li>Use Temp Cleanup to free disk space.</li>
+
+<li>Generate reports using HTML Report.</li>
 
 </ol>
 
@@ -279,23 +285,6 @@ Generate detailed system reports
 QA Toolkit © 2026
 
 </footer>
-
-<div id="lightbox" class="lightbox" onclick="closeImg()">
-<img id="lightbox-img">
-</div>
-
-<script>
-
-function openImg(img){
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("lightbox-img").src=img.src;
-}
-
-function closeImg(){
-document.getElementById("lightbox").style.display="none";
-}
-
-</script>
 
 </body>
 </html>
