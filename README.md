@@ -114,7 +114,7 @@ Chế độ dọn dẹp an toàn giúp tránh xóa nhầm các file quan trọng
 
 </p>
 
-Download phiên bản mới nhất tại:
+Download phiên bản mới nhất tại (pw xã nén nếu có là 123):
 
 https://github.com/PQC-hub/QA-Toolkit/releases
 
