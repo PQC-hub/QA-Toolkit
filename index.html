@@ -157,7 +157,7 @@ margin-top:30px;
 background:#ffffff;
 }
 
-/* ===== Comments (MỚI THÊM) ===== */
+/* ===== Comments (ĐÃ SỬA) ===== */
 .comment-section{
 background:#2a2a2a;
 padding:25px;
@@ -406,7 +406,7 @@ Chuột phải file → Properties → chọn <b>Unblock</b> → Run.<br><br>
 
 </div>
 
-<!-- ===== Bình luận (MỚI THÊM – ở dưới cùng) ===== -->
+<!-- ===== Bình luận từ người dùng (ĐÃ SỬA - FULL) ===== -->
 <div class="container">
 
 <h2>Bình luận từ người dùng</h2>
@@ -417,6 +417,10 @@ Chuột phải file → Properties → chọn <b>Unblock</b> → Run.<br><br>
 <input type="text" id="comment-name" placeholder="Tên của bạn *" >
 <textarea id="comment-text" rows="4" placeholder="Nhập bình luận của bạn... *"></textarea>
 <button onclick="submitComment()">Gửi bình luận</button>
+</div>
+
+<div style="margin-top:15px;text-align:center;">
+<button onclick="loadComments()" style="background:#555;color:white;padding:8px 16px;border:none;border-radius:6px;cursor:pointer;">🔄 Làm mới bình luận</button>
 </div>
 
 <div id="comments-list"></div>
@@ -460,7 +464,6 @@ let images=[
 "manhinh5.png",
 "manhinh6.png"
 ]
-
 let i=0
 setInterval(function(){
 i++
@@ -494,8 +497,9 @@ localStorage.setItem("qa_downloads",n)
 document.getElementById("downloads").innerText=n
 }
 
-/* ==================== HỆ THỐNG BÌNH LUẬN (MỚI) ==================== */
+/* ==================== HỆ THỐNG BÌNH LUẬN ĐÃ SỬA (HOẠT ĐỘNG NGAY) ==================== */
 function loadComments() {
+    console.log("🔄 Đang tải bình luận...");
     let comments = JSON.parse(localStorage.getItem("qa_comments") || "[]");
     let list = document.getElementById("comments-list");
     list.innerHTML = "";
@@ -526,10 +530,31 @@ function submitComment() {
     let text = textInput.value.trim();
 
     if (!name || !text) {
-        alert("Vui lòng nhập đầy đủ Tên và Bình luận!");
+        alert("❌ Vui lòng nhập đầy đủ Tên và Bình luận!");
         return;
     }
 
     let comments = JSON.parse(localStorage.getItem("qa_comments") || "[]");
     let now = new Date();
-    let dateStr = now.toLocaleDateString('vi-VN') + " " + now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '
+    let dateStr = now.toLocaleDateString('vi-VN') + " " + now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+
+    comments.unshift({ name, text, date: dateStr });
+    localStorage.setItem("qa_comments", JSON.stringify(comments));
+
+    nameInput.value = "";
+    textInput.value = "";
+
+    loadComments();
+    alert("✅ Bình luận đã được gửi thành công!\nBạn có thể thấy nó ngay dưới đây.");
+
+    document.getElementById("comments-list").scrollIntoView({ behavior: "smooth" });
+}
+
+/* Tự động load khi trang mở */
+loadComments();
+
+</script>
+
+</body>
+
+</html>
