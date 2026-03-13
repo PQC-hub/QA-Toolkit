@@ -13,7 +13,6 @@
 <style>
 
 /* ===== Global ===== */
-
 body{
 font-family:Segoe UI,Arial;
 margin:0;
@@ -28,7 +27,6 @@ color:#222;
 }
 
 /* ===== Navbar ===== */
-
 .navbar{
 display:flex;
 justify-content:space-between;
@@ -63,7 +61,6 @@ cursor:pointer;
 }
 
 /* ===== Hero ===== */
-
 .hero{
 text-align:center;
 padding:20px 20px 25px;
@@ -95,7 +92,6 @@ margin-top:6px;
 }
 
 /* ===== Download buttons ===== */
-
 .download-area{
 display:flex;
 gap:16px;
@@ -118,7 +114,6 @@ background:#4CAF50;
 }
 
 /* ===== Container ===== */
-
 .container{
 max-width:1050px;
 margin:auto;
@@ -126,7 +121,6 @@ padding:30px 20px;
 }
 
 /* ===== Slideshow ===== */
-
 .slideshow{
 text-align:center;
 margin-top:15px;
@@ -138,7 +132,6 @@ border-radius:8px;
 }
 
 /* ===== Gallery ===== */
-
 .gallery{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -153,7 +146,6 @@ cursor:pointer;
 }
 
 /* ===== Guide ===== */
-
 .guide{
 background:#2a2a2a;
 padding:20px;
@@ -165,8 +157,105 @@ margin-top:30px;
 background:#ffffff;
 }
 
-/* ===== Footer ===== */
+/* ===== Comments (MỚI THÊM) ===== */
+.comment-section{
+background:#2a2a2a;
+padding:25px;
+border-radius:8px;
+margin-top:30px;
+}
 
+.light .comment-section{
+background:#ffffff;
+color:#222;
+}
+
+.comment-form{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.comment-form input[type="text"],
+.comment-form textarea{
+padding:12px;
+border:1px solid #555;
+background:#1f1f1f;
+color:#eee;
+border-radius:6px;
+font-family:inherit;
+resize:vertical;
+}
+
+.light .comment-form input[type="text"],
+.light .comment-form textarea{
+background:#fff;
+color:#222;
+border-color:#ccc;
+}
+
+.comment-form button{
+background:#0078D4;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+}
+
+.comment-form button:hover{
+background:#0063b1;
+}
+
+#comments-list{
+margin-top:25px;
+}
+
+.comment{
+background:#333;
+padding:15px;
+border-radius:8px;
+margin-bottom:15px;
+border-left:4px solid #0078D4;
+}
+
+.light .comment{
+background:#f4f4f4;
+border-left-color:#0078D4;
+}
+
+.comment-header{
+display:flex;
+justify-content:space-between;
+font-size:13px;
+color:#bbb;
+}
+
+.light .comment-header{
+color:#666;
+}
+
+.comment-name{
+font-weight:600;
+color:#fff;
+}
+
+.light .comment-name{
+color:#222;
+}
+
+.comment-date{
+font-style:italic;
+}
+
+.comment-text{
+margin-top:10px;
+line-height:1.4;
+}
+
+/* ===== Footer ===== */
 footer{
 text-align:center;
 padding:18px;
@@ -174,39 +263,30 @@ color:#888;
 }
 
 /* ===== Responsive ===== */
-
 @media(max-width:900px){
-
 .gallery{
 grid-template-columns:repeat(2,1fr);
 }
-
 }
 
 @media(max-width:600px){
-
 .menu{
 display:none;
 flex-direction:column;
 }
-
 .menu-toggle{
 display:block;
 }
-
 .gallery{
 grid-template-columns:1fr;
 }
-
 .download-btn{
 width:100%;
 text-align:center;
 }
-
 }
 
 /* ===== Lightbox ===== */
-
 .lightbox{
 display:none;
 position:fixed;
@@ -231,7 +311,6 @@ max-height:90%;
 <body>
 
 <!-- ===== Navbar ===== -->
-
 <div class="navbar">
 
 <h3>QA Toolkit</h3>
@@ -250,7 +329,6 @@ max-height:90%;
 </div>
 
 <!-- ===== Hero ===== -->
-
 <div class="hero">
 
 <img src="banner.png" class="banner">
@@ -285,7 +363,6 @@ max-height:90%;
 </div>
 
 <!-- ===== Screenshots ===== -->
-
 <div class="container">
 
 <h2>Ảnh giao diện</h2>
@@ -308,7 +385,6 @@ max-height:90%;
 </div>
 
 <!-- ===== Guide ===== -->
-
 <div class="container" id="guide">
 
 <h2>Hướng dẫn sử dụng</h2>
@@ -330,8 +406,26 @@ Chuột phải file → Properties → chọn <b>Unblock</b> → Run.<br><br>
 
 </div>
 
-<!-- ===== Lightbox ===== -->
+<!-- ===== Bình luận (MỚI THÊM – ở dưới cùng) ===== -->
+<div class="container">
 
+<h2>Bình luận từ người dùng</h2>
+
+<div class="comment-section">
+
+<div class="comment-form">
+<input type="text" id="comment-name" placeholder="Tên của bạn *" >
+<textarea id="comment-text" rows="4" placeholder="Nhập bình luận của bạn... *"></textarea>
+<button onclick="submitComment()">Gửi bình luận</button>
+</div>
+
+<div id="comments-list"></div>
+
+</div>
+
+</div>
+
+<!-- ===== Lightbox ===== -->
 <div class="lightbox" id="lightbox" onclick="closeImg()">
 
 <img id="lightbox-img">
@@ -347,25 +441,17 @@ QA Toolkit – Windows Optimization Tool
 <script>
 
 /* menu */
-
 function toggleMenu(){
-
 let menu=document.getElementById("menu")
-
 menu.style.display=(menu.style.display==="flex")?"none":"flex"
-
 }
 
 /* theme */
-
 function toggleTheme(){
-
 document.body.classList.toggle("light")
-
 }
 
 /* slideshow */
-
 let images=[
 "manhinh1.png",
 "manhinh2.png",
@@ -376,37 +462,25 @@ let images=[
 ]
 
 let i=0
-
 setInterval(function(){
-
 i++
 if(i>=images.length)i=0
-
 document.getElementById("slide").src=images[i]
-
 },3000)
 
 /* gallery */
-
 function openImg(img){
-
 document.getElementById("lightbox").style.display="flex"
 document.getElementById("lightbox-img").src=img.src
-
 }
 
 function closeImg(){
-
 document.getElementById("lightbox").style.display="none"
-
 }
 
 /* download counter */
-
 let base=141142
-
 let stored=localStorage.getItem("qa_downloads")
-
 if(stored){
 document.getElementById("downloads").innerText=stored
 }else{
@@ -414,19 +488,48 @@ document.getElementById("downloads").innerText=base
 }
 
 function countDownload(){
-
 let n=parseInt(localStorage.getItem("qa_downloads")||base)
-
 n++
-
 localStorage.setItem("qa_downloads",n)
-
 document.getElementById("downloads").innerText=n
-
 }
 
-</script>
+/* ==================== HỆ THỐNG BÌNH LUẬN (MỚI) ==================== */
+function loadComments() {
+    let comments = JSON.parse(localStorage.getItem("qa_comments") || "[]");
+    let list = document.getElementById("comments-list");
+    list.innerHTML = "";
 
-</body>
+    if (comments.length === 0) {
+        list.innerHTML = '<p style="color:#888; text-align:center; padding:20px;">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ trải nghiệm!</p>';
+        return;
+    }
 
-</html>
+    comments.forEach(c => {
+        let div = document.createElement("div");
+        div.className = "comment";
+        div.innerHTML = `
+            <div class="comment-header">
+                <span class="comment-name">${c.name}</span>
+                <span class="comment-date">${c.date}</span>
+            </div>
+            <div class="comment-text">${c.text.replace(/\n/g, '<br>')}</div>
+        `;
+        list.appendChild(div);
+    });
+}
+
+function submitComment() {
+    let nameInput = document.getElementById("comment-name");
+    let textInput = document.getElementById("comment-text");
+    let name = nameInput.value.trim();
+    let text = textInput.value.trim();
+
+    if (!name || !text) {
+        alert("Vui lòng nhập đầy đủ Tên và Bình luận!");
+        return;
+    }
+
+    let comments = JSON.parse(localStorage.getItem("qa_comments") || "[]");
+    let now = new Date();
+    let dateStr = now.toLocaleDateString('vi-VN') + " " + now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '
